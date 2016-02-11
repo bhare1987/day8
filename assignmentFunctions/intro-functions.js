@@ -28,7 +28,13 @@ console.assert(isNaN(max("aaa","bbb")));
  */
 
 function maxOfThree(a, b, c){
-    // YOUR CODE HERE
+  if (a > b && a > c) {
+    return a;
+  } else if (b > a && b > c) {
+    return b;
+  } else {
+    return c;
+  }
 }
 
 console.assert(maxOfThree(1,3,2) === 3);
@@ -46,7 +52,11 @@ console.assert(isNaN(maxOfThree("aaa","bbb","ccc")));
  */
 
 function isVowel(char){
-    // YOUR CODE HERE
+    if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
+      return true;
+    } else {
+      return false;
+    };
 }
 
 console.assert(isVowel(0) === false);
@@ -67,8 +77,18 @@ console.assert(isVowel("E") === true);
 
  */
 
-function rovarspraket(in){
-    // YOUR CODE HERE
+function rovarspraket(input){
+    var text = input,
+        textResult = [];
+    text = text.toLowerCase().split("");
+    for (var i = 0; i <= text.length; i++) {
+      if (!text[i] === "a" || !text[i] === "o" || !text[i] === "e" || !text[i] === "i" || !text[i] ==="u") {
+        textResult.push(text[i].splice(i, 0, "o" + text[i]));
+      } else {
+        textResult.push(text[i]);
+      }
+    }
+    return textResult.join();
 }
 
 console.assert(rovarspraket("a") === "a")
