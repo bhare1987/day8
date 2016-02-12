@@ -52,7 +52,8 @@ console.assert(isNaN(maxOfThree("aaa","bbb","ccc")));
  */
 
 function isVowel(char){
-    if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
+    var charTest = char.toString().toLowerCase();
+    if (charTest === "a" || charTest === "e" || charTest === "i" || charTest === "o" || charTest === "u") {
       return true;
     } else {
       return false;
@@ -77,18 +78,24 @@ console.assert(isVowel("E") === true);
 
  */
 
+
 function rovarspraket(input){
+    if (typeof input === "number"){
+      return input.toString();
+    }
     var text = input,
-        textResult = [];
-    text = text.toLowerCase().split("");
-    for (var i = 0; i <= text.length; i++) {
-      if (!text[i] === "a" || !text[i] === "o" || !text[i] === "e" || !text[i] === "i" || !text[i] ==="u") {
-        textResult.push(text[i].splice(i, 0, "o" + text[i]));
+        textResult = [],
+        vowels = ['a','e','i','o','u'];
+    text = text.toString().toLowerCase().split("");
+    for (var i = 0; i < text.length; i++) {
+      if (vowels.indexOf(text[i]) === -1) {
+        textResult.push(text[i],'o',text[i]);
       } else {
         textResult.push(text[i]);
       }
     }
-    return textResult.join();
+    console.log(textResult.join(""));
+    return textResult.join("");
 }
 
 console.assert(rovarspraket("a") === "a")
@@ -107,7 +114,8 @@ console.assert(rovarspraket(0) === "0")
  */
 
 function reverse(str){
-    // YOUR CODE HERE
+    var result = str.split("").reverse().join("");
+    return result;
 }
 
 console.assert(reverse("books") === "skoob")
@@ -123,7 +131,16 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  */
 
 function findLongestWord(sentence){
-    // YOUR CODE HERE
+    var input = sentence.split(" ").sort(),
+        longest = 0,
+        output;
+    for (var i = 0; i < input.length; i++){
+      if (input[i].length > longest) {
+        longest = input[i].length;
+        output = input[i];
+      }
+    }
+    return output;
 }
 
 console.assert(findLongestWord("book dogs") === "book")
