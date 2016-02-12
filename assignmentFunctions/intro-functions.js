@@ -129,19 +129,19 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  *
  * i.e. findLongestWord("book dogs") should return "book"
  */
-
-function findLongestWord(sentence){
-    var input = sentence.split(" ").sort(),
-        longest = 0,
-        output;
-    for (var i = 0; i < input.length; i++){
-      if (input[i].length > longest) {
-        longest = input[i].length;
-        output = input[i];
-      }
-    }
-    return output;
-}
+// Regex from http://stackoverflow.com/questions/4328500/how-can-i-strip-all-punctuation-from-a-string-in-javascript-using-regex
+ function findLongestWord(sentence){
+     var input = sentence.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").split(" "),
+         longest = 0,
+         output;
+     for (var i = 0; i < input.length; i++){
+       if (input[i].length > longest) {
+         longest = input[i].length;
+         output = input[i];
+       }
+     }
+     return output;
+ }
 
 console.assert(findLongestWord("book dogs") === "book")
 console.assert(findLongestWord("don't mess with Texas") === "Texas")
