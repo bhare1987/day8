@@ -134,7 +134,7 @@ var spanishColor = function(colorName) {
   azul: function() {
     return "#0000ff";
   },
-  verdeL function() {
+  verde: function() {
     return "#00ff00";
   },
   negro: function() {
@@ -143,22 +143,18 @@ var spanishColor = function(colorName) {
 };
 
 // Put your answer below -------------------------
-var spanishColor = {
-  colorName: function(color) {
-    var colorName = color.toLowerCase();
-    if (colorName === "rojo") {
-      return "#ff0000";
-    } else if (colorName === "blanco") {
-      return "#ffffff";
-    } else if (colorName === "azul") {
-      return "#0000ff";
-    } else if (colorName === "verde") {
-      return "#00ff00";
-    } else if (colorName === "negro") {
-      return "#000000";
-    }
-  }
+var spanishColor = function(color){
+    var colorName = color.toLowerCase(),
+    colorList = {
+      rojo: "#ff0000",
+      blanco: "#ffffff",
+      azul: "#0000ff",
+      verde: "#00ff00",
+      negro: "000000"
+    };
+    return colorList[colorName];
 }
+
 
 // -----------------------------------------------
 
