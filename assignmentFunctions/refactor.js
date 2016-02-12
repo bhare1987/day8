@@ -230,7 +230,15 @@ var decreaseScore = function() {
 
 // Put your answer below -------------------------
 
-
+var score = {
+  value: 0,
+  increaseScore: function() {
+    score.value++;
+  },
+  decreaseScore: function() {
+    score.value--;
+  }
+}
 
 // -----------------------------------------------
 
@@ -332,7 +340,10 @@ var callLater = function(timeout, callback) {
 };
 
 // Put your answer below -------------------------
-
+var callLater = function(callback, timeout) {
+  var timeout2 = typeof timeout !== 'undefined' ? timeout : 1000;
+  setTimeout(callback, timeout2);
+}
 
 // -----------------------------------------------
 
