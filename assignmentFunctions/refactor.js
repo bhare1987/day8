@@ -125,19 +125,19 @@ var reverseStr = function(str) {
 // instead of an if/else statement.
 
 var spanishColor = function(colorName) {
-  if (colorName.toLowerCase() === "rojo") {
-    return "#ff0000";
-  }
-  else if (colorName.toLowerCase() === "blanco") {
+  rojo: function() {
+    return return "#ff0000";
+  },
+  blanco: function() {
     return "#ffffff";
-  }
-  else if (colorName.toLowerCase() === "azul") {
+  },
+  azul: function() {
     return "#0000ff";
-  }
-  else if (colorName.toLowerCase() === "verde") {
+  },
+  verdeL function() {
     return "#00ff00";
-  }
-  else if (colorName.toLowerCase() === "negro") {
+  },
+  negro: function() {
     return "#000000";
   }
 };
@@ -260,9 +260,10 @@ var twoPlusTwo = addNumbers(2,2);
 // Put your answer below -------------------------
 
 var addNumbers = function(numberA, numberB) {
-  return numberA + numberB);
-},
-    twoPlusTwo = addNumbers(2,2);
+  return numberA + numberB;
+};
+
+var twoPlusTwo = addNumbers(2,2);
 
 // -----------------------------------------------
 
@@ -292,7 +293,7 @@ It was getting set to NaN because it was adding undefined to the speed variable.
 
 var speed = 0,
     accelerate = function(amount) {
-      if (amount && typeof amount === "Number"){
+      if (amount && typeof amount === "number"){
         speed += amount;
       } else {
         console.log("Please enter a valid value.");
