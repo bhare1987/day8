@@ -85,7 +85,7 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
-C, because the X gets overwritten by the z and then logged. The timeout function delays that self-calling function for 1 second before triggering, over writing the letter variable with y and logging it.
+//C, because the X gets overwritten by the z and then logged. The timeout function delays that self-calling function for 1 second before triggering, over writing the letter variable with y and logging it.
 
 // -----------------------------------------------
 
@@ -125,19 +125,19 @@ var reverseStr = function(str) {
 // instead of an if/else statement.
 
 var spanishColor = function(colorName) {
-  rojo: function() {
-    return return "#ff0000";
-  },
-  blanco: function() {
+  if (colorName.toLowerCase() === "rojo") {
+    return "#ff0000";
+  }
+  else if (colorName.toLowerCase() === "blanco") {
     return "#ffffff";
-  },
-  azul: function() {
+  }
+  else if (colorName.toLowerCase() === "azul") {
     return "#0000ff";
-  },
-  verde: function() {
+  }
+  else if (colorName.toLowerCase() === "verde") {
     return "#00ff00";
-  },
-  negro: function() {
+  }
+  else if (colorName.toLowerCase() === "negro") {
     return "#000000";
   }
 };
@@ -285,7 +285,7 @@ var accelerate = function(amount) {
 };
 
 // Put your answer below -------------------------
-It was getting set to NaN because it was adding undefined to the speed variable.
+//It was getting set to NaN because it was adding undefined to the speed variable.
 
 var speed = 0,
     accelerate = function(amount) {
@@ -337,11 +337,22 @@ var callLater = function(timeout, callback) {
 };
 
 // Put your answer below -------------------------
-var callLater = function(callback, timeout) {
-  var timeout2 = typeof timeout !== 'undefined' ? timeout : 1000;
-  setTimeout(callback, timeout2);
-}
+// var callLater = function(callback, timeout) {
+//   var timeout2 = typeof timeout !== 'undefined' ? timeout : 1000;
+//   setTimeout(callback, timeout2);
+// }
 
+var callLater = function(timeout, callback) {
+  var args = Array.prototype.slice.call(arguments);
+  console.log(args);
+  console.log(typeof args[0]);
+  console.log(typeof args[1]);
+  if (typeof args[1] === "undefined" && typeof args[0] === "function") {
+    setTimeout(args[0], 1000);
+  } else {
+    setTimeout(callback, timeout);
+  }
+}
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
