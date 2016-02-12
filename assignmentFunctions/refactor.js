@@ -344,9 +344,6 @@ var callLater = function(timeout, callback) {
 
 var callLater = function(timeout, callback) {
   var args = Array.prototype.slice.call(arguments);
-  console.log(args);
-  console.log(typeof args[0]);
-  console.log(typeof args[1]);
   if (typeof args[1] === "undefined" && typeof args[0] === "function") {
     setTimeout(args[0], 1000);
   } else {
